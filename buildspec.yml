@@ -2,7 +2,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 10
+      nodejs: 16
     commands:
       - echo Getting Started
   pre_build:
@@ -21,7 +21,7 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - aws s3 sync build/ s3://sandip-demo-static-site-s3 --acl public-read
+      - aws s3 sync build/ s3://githubactions-s3/aidbanc_build_repo/ --acl public-read
 artifacts:
   files:
     - 'build/*'
